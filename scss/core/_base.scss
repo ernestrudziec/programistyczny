@@ -1,0 +1,38 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 16px;
+	font-family: $f-main, sans-serif;
+
+	@include vHD {
+		font-size: 17px;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 700px;
+	font-weight: 500;
+	width: 100%;
+}
+
+p > code {
+	padding: 0.25rem 0.5rem;
+	line-height: 1;
+	position: relative;
+	margin: 0 0.25rem;
+	font-size: 0.9em;
+	color: #222222;
+	background: #ececec;
+	border-radius: 5px;
+	white-space: nowrap;
+}
