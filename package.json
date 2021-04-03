@@ -10,6 +10,8 @@
   "dependencies": {
     "@apollo/client": "^3.3.13",
     "graphql": "^15.5.0",
+    "luxon": "^1.26.0",
+    "moment": "^2.29.1",
     "next": "10.1.2",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^6.4.0",

@@ -7,4 +7,26 @@
 	padding: 2rem 0;
 	margin: 0;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.1));
+
+	.date {
+		margin-top: 3rem;
+		margin-bottom: 0rem;
+		opacity: 0.7;
+		font-weight: 400;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		font-size: 0.85rem;
+
+		img {
+			height: 1rem;
+			object-fit: contain;
+			width: 1rem;
+			position: relative;
+		}
+
+		span {
+			margin-left: 0.5rem;
+		}
+	}
 }

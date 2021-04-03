@@ -9,3 +9,14 @@ module.exports = withPlugins([
 		},
 	],
 ]);
+
+module.exports = {
+	async rewrites() {
+		return [
+			{
+				source: '/artykul/:article*',
+				destination: '/article/:article*', // The :path parameter is used here so will not be automatically passed in the query
+			},
+		];
+	},
+};

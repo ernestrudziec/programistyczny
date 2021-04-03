@@ -8,10 +8,11 @@ import materialOceanTheme from '../../lib/MaterialOcean';
 import materialOceanThemeCSS from '../../lib/MaterialOceanCSS';
 import Layout from '../../components/Layout';
 import CategoryTile from '../../components/CategoryTile';
+import { DateTime, Duration } from 'luxon';
+// import Duration from 'luxon';
 
 const renderers = {
 	code: ({ language, value }) => {
-		console.log(language);
 		return (
 			<SyntaxHighlighter
 				showLineNumbers={true}
@@ -45,12 +46,74 @@ export const getStaticProps = async ({ params }) => {
 	};
 };
 
+const getDateString = (date, duration) => {
+	const getPlural = (unit, number) => {
+		const DAYS_LOCALE = ['dzień', 'dni'];
+		const HOURS_LOCALE = ['godzinę', 'godziny', 'godzin'];
+		const MINUTES_LOCALE = ['minutę', 'minuty', 'minut'];
+
+		const LAST_DIGIT = parseInt(number.toString()[number.toString().length - 1]);
+		switch (unit) {
+			case 'days':
+				if (number > 1) {
+					return DAYS_LOCALE[1];
+				} else return DAYS_LOCALE[0];
+				break;
+			case 'hours':
+				if (number == 1) {
+					return HOURS_LOCALE[0];
+				} else if (LAST_DIGIT > 1 && LAST_DIGIT < 5) {
+					return HOURS_LOCALE[1];
+				} else {
+					return HOURS_LOCALE[2];
+				}
+				break;
+			case 'minutes':
+				if (number == 1) {
+					return MINUTES_LOCALE[0];
+				} else if (LAST_DIGIT > 1 && LAST_DIGIT < 5) {
+					return MINUTES_LOCALE[1];
+				} else {
+					return MINUTES_LOCALE[2];
+				}
+				break;
+		}
+	};
+
+	let finalString = date;
+
+	if (duration.days < 4) {
+		if (duration.days > 0) {
+			finalString = `${Math.round(duration.days, 0)} ${getPlural('days', duration.days)} temu`;
+		} else {
+			if (duration.hours == 0) {
+				finalString = `${Math.round(duration.minutes, 0)} ${getPlural(
+					'minutes',
+					Math.round(duration.minutes, 0)
+				)} temu`;
+			} else {
+				finalString = `${Math.round(duration.hours, 0)} ${getPlural('hours', duration.hours)} temu`;
+			}
+		}
+	}
+
+	return finalString;
+};
+
 export default function Article({ data }) {
+	const DATE_NOW = DateTime.now().setLocale('pl');
+	const DATE = DateTime.fromISO(data.date).setLocale('pl');
+	const dateStringOptions = { month: 'long', day: 'numeric', year: 'numeric' };
+	const DATE_STRING = DATE.toLocaleString(dateStringOptions);
+	const DURATION = Duration.fromMillis(DATE_NOW - DATE)
+		.shiftTo('days', 'hours', 'minutes')
+		.toObject();
+
 	useEffect(() => {
-		console.log(data);
+		console.log(getDateString(DATE_STRING, DURATION));
 	});
 
-	const { slug, id, content, title, color, categories, date, authors, tags } = data;
+	const { slug, id, content, title, color, categories, authors, tags } = data;
 
 	return (
 		<Layout>
@@ -58,7 +121,10 @@ export default function Article({ data }) {
 				<title>{slug}</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-
+			<div className="date">
+				<img src="/assets/clock.svg" />
+				<span>{getDateString(DATE_STRING, DURATION)}</span>
+			</div>
 			<div className="article-template">
 				<div className="container">
 					<div
@@ -83,6 +149,7 @@ export default function Article({ data }) {
 							})}
 						</ul>
 					</div>
+
 					<ReactMarkdown renderers={renderers}>{content}</ReactMarkdown>
 				</div>
 			</div>
