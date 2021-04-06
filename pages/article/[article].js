@@ -9,6 +9,7 @@ import materialOceanThemeCSS from '../../lib/MaterialOceanCSS';
 import Layout from '../../components/Layout';
 import CategoryTile from '../../components/CategoryTile';
 import { DateTime, Duration } from 'luxon';
+import Categories from '../../components/Categories';
 // import Duration from 'luxon';
 
 const renderers = {
@@ -109,10 +110,6 @@ export default function Article({ data }) {
 		.shiftTo('days', 'hours', 'minutes')
 		.toObject();
 
-	useEffect(() => {
-		console.log(getDateString(DATE_STRING, DURATION));
-	});
-
 	const { slug, id, content, title, color, categories, authors, tags } = data;
 
 	return (
@@ -129,27 +126,16 @@ export default function Article({ data }) {
 				<div className="container">
 					<div
 						className="heading"
-						style={{ background: `linear-gradient(180deg, ${color[0]?.css},${color[1]?.css})` }}
+						style={{ background: `linear-gradient(180deg, ${color.map((item) => item.css)})` }}
 					>
 						<h1>{title}</h1>
 						<ul className="tags">
 							{tags.map((item) => {
-								return <li>#{item}</li>;
+								return <li key={item}>#{item}</li>;
 							})}
 						</ul>
-						<ul className="categories">
-							{categories.map((item) => {
-								return (
-									<CategoryTile
-										imgUrl={item.category_icon.url}
-										name={item.name}
-										color={item.categoryColor.css}
-									/>
-								);
-							})}
-						</ul>
+						<Categories categories={categories} />
 					</div>
-
 					<ReactMarkdown renderers={renderers}>{content}</ReactMarkdown>
 				</div>
 			</div>

@@ -5,6 +5,28 @@ export const getAllPagesQuery = gql`
 		articles {
 			id
 			slug
+			content
+			title
+			shortDescription
+			color {
+				hex
+				css
+			}
+			tags
+			date
+			categories {
+				id
+				name
+				category_icon {
+					url
+				}
+				categoryColor {
+					css
+				}
+			}
+			authors {
+				id
+			}
 		}
 	}
 `;

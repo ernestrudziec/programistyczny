@@ -2,6 +2,9 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke: 1px transparent;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 html,
@@ -35,4 +38,24 @@ p > code {
 	background: #ececec;
 	border-radius: 5px;
 	white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #ececec;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cfcfcf;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #707070;
 }
