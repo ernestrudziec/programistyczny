@@ -1,129 +1,131 @@
 .article-template {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	background: white;
-	border-radius: 10px;
-	padding: 1rem;
-	margin: 1rem 0;
-	width: 100%;
-	margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  margin-top: 3rem;
 
-	@include vHD {
-		box-shadow: 0px 5px 33px 0px rgba(0, 0, 0, 0.1);
-		width: 90%;
-		max-width: 800px;
-		margin-top: 5rem;
-	}
+  @include vHD {
+    box-shadow: 0px 5px 33px 0px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    margin-top: 5rem;
+  }
 
-	.heading {
-		color: white;
-		padding: 1rem 1rem;
-		border-radius: 10px;
-		width: 100%;
-		margin: 1rem 0;
-		padding-bottom: 1rem;
-		position: relative;
-		margin-bottom: -1rem;
-		top: -3rem;
-		padding-bottom: 2rem;
+  .heading {
+    color: white;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    width: 100%;
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+    position: relative;
+    margin-bottom: -1rem;
+    top: -3rem;
+    padding-bottom: 2rem;
 
-		@include vHD {
-			margin-bottom: -3rem;
-			padding: 2rem;
-			position: relative;
-			top: -5rem;
-		}
+    @include vHD {
+      margin-bottom: -3rem;
+      padding: 2rem;
+      position: relative;
+      top: -5rem;
+    }
 
-		.tags {
-			list-style: none;
-			padding: 0;
-			display: flex;
-			justify-content: flex-start;
-			margin-top: 0.5rem;
+    .tags {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 0.5rem;
 
-			li {
-				font-weight: 300;
-				margin-right: 0.35rem;
-				opacity: 0.8;
-				font-size: 0.75rem;
+      li {
+        font-weight: 300;
+        margin-right: 0.35rem;
+        opacity: 0.8;
+        font-size: 0.75rem;
 
-				@include vHD {
-					font-size: 0.75rem;
-				}
-			}
-		}
+        @include vHD {
+          font-size: 0.75rem;
+        }
+      }
+    }
 
-		h1 {
-			font-weight: 600;
-			font-size: 1.6rem;
-			page-break-inside: avoid;
-			margin: 1rem 0;
-			margin-bottom: 1rem;
+    h1 {
+      font-weight: 600;
+      font-size: 1.6rem;
+      page-break-inside: avoid;
+      margin: 1rem 0;
+      margin-bottom: 1rem;
 
-			@include vHD {
-				font-size: 2rem;
-			}
-		}
-	}
+      @include vHD {
+        font-size: 2rem;
+      }
+    }
+  }
 
-	.container {
-		display: flex;
-		justify-content: flex-start;
-		align-items: flex-start;
-		text-align: left;
-		width: 100%;
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
 
-		::-moz-selection {
-			background: #f3f3f3;
-		}
+    ::-moz-selection {
+      background: #f3f3f3;
+    }
 
-		::selection {
-			background: #f3f3f3;
-		}
+    ::selection {
+      background: #f3f3f3;
+    }
 
-		code {
-			::-moz-selection {
-				color: inherit;
-				background: rgba($color: #209c92, $alpha: 0.3);
-			}
+    code {
+      ::-moz-selection {
+        color: inherit;
+        background: rgba($color: #209c92, $alpha: 0.3);
+      }
 
-			::selection {
-				color: inherit;
-				background: rgba($color: #209c92, $alpha: 0.3);
-			}
-		}
+      ::selection {
+        color: inherit;
+        background: rgba($color: #209c92, $alpha: 0.3);
+      }
+    }
 
-		h1,
-		h2,
-		h3 {
-			line-height: 1.25;
-		}
+    h1,
+    h2,
+    h3 {
+      line-height: 1.25;
+    }
 
-		h2 {
-			font-size: 1.5rem;
-			margin-bottom: 0;
-			margin-top: 1rem;
-		}
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      margin-top: 1rem;
+    }
 
-		h3 {
-			font-size: 1.5rem;
-			margin-bottom: 0;
-			margin-top: 2rem;
-		}
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      margin-top: 1rem;
+    }
 
-		p {
-			font-size: 1rem;
-			line-height: 2;
-			font-weight: 300;
-			margin-bottom: 2rem;
-		}
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
 
-		img {
-			width: 100%;
-			height: auto;
-			margin: 0 auto;
-		}
-	}
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+  }
 }

@@ -1,124 +1,135 @@
 .article-tiles-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-	@include vHD {
-		flex-wrap: wrap;
-		justify-content: space-between;
-		flex-direction: row;
-		width: 100%;
-	}
+  @include vHD {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+  }
 }
 
 .article-tile {
-	text-decoration: none;
-	flex: auto;
-	width: 100%;
-	height: auto;
-	margin: 1rem 0;
+  text-decoration: none;
+  flex: auto;
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.3s all;
 
-	@include vHD {
-		height: 17rem;
-		max-width: calc(50% - 1rem);
-	}
+  &:hover {
+    transform: scale(1.02);
+    transition: 0.3s all;
+  }
+  img {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+  }
 
-	@include XGA {
-		height: 16rem;
-		max-width: calc(50% - 1rem);
-	}
+  article {
+    border-radius: 5px;
+    padding: 1.25rem 1.25rem;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    transition: 1s box-shadow $QuadEaseOut;
+    padding-bottom: 2rem;
+    height: 100%;
 
-	article {
-		border-radius: 5px;
-		padding: 1.25rem 1.25rem;
-		color: white;
-		position: relative;
-		cursor: pointer;
-		transition: 1s box-shadow $QuadEaseOut;
-		padding-bottom: 2rem;
-		height: 100%;
+    &:hover,
+    &:focus {
+      .read-more {
+        span {
+          transform: translateY(0%);
+          opacity: 1;
+          transition: 0.4s transform $QuadEaseOut,
+            opacity 0.2s 0.1s $QuadEaseOut;
+        }
+      }
+    }
 
-		&:hover,
-		&:focus {
-			.read-more {
-				span {
-					transform: translateY(0%);
-					opacity: 1;
-					transition: 0.4s transform $QuadEaseOut, opacity 0.2s 0.1s $QuadEaseOut;
-				}
-			}
-		}
+    .read-more {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      overflow: hidden;
+      display: none;
 
-		.read-more {
-			position: absolute;
-			right: 1rem;
-			bottom: 1rem;
-			overflow: hidden;
+      @include XGA {
+        display: initial;
+      }
 
-			span {
-				color: white;
-				text-decoration: none;
-				display: block;
-				transform: translateY(-100%);
-				opacity: 0;
-				transition: 0.6s transform $QuadEaseOut, opacity 0.2s $QuadEaseOut;
-			}
-		}
+      span {
+        color: white;
+        text-decoration: none;
+        display: block;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: 0.6s transform $QuadEaseOut, opacity 0.2s $QuadEaseOut;
+      }
+    }
 
-		&:after {
-			position: absolute;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			top: 0;
-			content: '';
-			box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.3);
-			opacity: 0.3;
-			transition: 0.3s all $QuadEaseInOut;
-		}
+    &:after {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      content: "";
+      box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.3);
+      opacity: 0.3;
+      transition: 0.3s all $QuadEaseInOut;
+    }
 
-		&:hover {
-			&:after {
-				opacity: 0.7;
-			}
-		}
+    &:hover {
+      &:after {
+        opacity: 0.7;
+      }
+    }
 
-		& > h2 {
-			font-size: 1.6rem;
-			color: white;
-			font-weight: 600;
-			padding-top: 0;
-			margin-top: 0;
-			margin-bottom: 0.5rem;
-		}
+    & > h2 {
+      font-size: 24px;
+      color: white;
+      font-weight: 600;
+      padding-top: 0;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
 
-		.tags {
-			list-style: none;
-			padding: 0;
-			display: flex;
-			justify-content: flex-start;
-			align-items: flex-start;
-			flex-wrap: wrap;
-			margin: 0.5rem 0;
-			margin-bottom: 1rem;
+    .tags {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin: 0.5rem 0;
+      margin-bottom: 1rem;
 
-			& > li {
-				margin-right: 0.5rem;
-				line-height: 1.7;
-				font-size: 0.65rem;
-				opacity: 0.8;
-				font-weight: 400;
-			}
-		}
+      & > li {
+        margin-right: 0.5rem;
+        line-height: 1.7;
+        font-size: 14px;
+        opacity: 0.8;
+        font-weight: 400;
+      }
+    }
 
-		& > p {
-			margin-top: 0.5rem;
-			font-size: 0.8rem;
-			line-height: 1.7;
-			opacity: 1;
-			font-weight: 500;
-			max-width: 350px;
-		}
-	}
+    & > p {
+      margin-top: 0.5rem;
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 1;
+      font-weight: 500;
+      max-width: 100%;
+    }
+  }
 }
