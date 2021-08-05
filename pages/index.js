@@ -25,7 +25,7 @@ export default function Home({ articles }) {
   useEffect(() => {
     console.log(window);
     if (typeof window !== "undefined")
-      window.DISQUSWIDGETS.getCount({ reset: true });
+      window.DISQUSWIDGETS?.getCount({ reset: true });
   }, []);
   return (
     <>
