@@ -13,6 +13,17 @@
     rgba(255, 255, 255, 0.2)
   );
 
+  .logo-link {
+    cursor: pointer;
+    transition: 0.3s all;
+
+    @include XGA {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
   .article-disqus {
     width: 90%;
     max-width: 800px;
@@ -57,6 +68,10 @@
 
       a {
         margin-right: 1rem;
+
+        &:last-child {
+          margin-right: 0 !important;
+        }
       }
     }
 
@@ -64,8 +79,8 @@
       position: relative;
       z-index: 10;
       mix-blend-mode: hard-light !important;
-      width: 250px;
-      margin-top: 0rem;
+      width: 200px;
+      margin-top: 1rem;
       margin-bottom: -4rem;
     }
     .logo {
