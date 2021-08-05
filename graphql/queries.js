@@ -44,6 +44,7 @@ export const getPageBySlugQuery = (slug) => {
 			id
 			slug
 			content
+      shortDescription
 			title
 			color {
 			  hex

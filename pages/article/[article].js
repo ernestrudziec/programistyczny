@@ -129,14 +129,38 @@ export default function Article({ data }) {
     categories,
     authors,
     tags,
-    thumbnail
+    thumbnail,
+    shortDescription
   } = data;
 
   return (
     <Layout>
       <Head>
-        <title>Artykuł - {title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{title}</title>
+        <meta name="apple-mobile-web-app-title" content="programistyczny.pl" />
+        <meta name="robots" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ernest_rudziec" />
+        <meta name="twitter:creator" content="@ernest_rudziec" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
+        <meta property="og:locale" content="pl_PL" />
+        <meta name="description" content={shortDescription} />
+        <meta
+          property="og:url"
+          content={`https://programistyczny.pl/artykul/${slug}`}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="12-04-2021" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={shortDescription} />
+        <meta property="og:image" content={thumbnail?.url} />
+        <meta property="og:image:alt" content={title} />
+        <link
+          rel="canonical"
+          href={`https://programistyczny.pl/artykul/${slug}`}
+        />
       </Head>
 
       <div className="date">
