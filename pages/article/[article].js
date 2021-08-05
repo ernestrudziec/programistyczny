@@ -133,6 +133,10 @@ export default function Article({ data }) {
     shortDescription
   } = data;
 
+  useEffect(() => {
+    console.log(DATE);
+  });
+
   return (
     <Layout>
       <Head>
@@ -152,7 +156,10 @@ export default function Article({ data }) {
           content={`https://programistyczny.pl/artykul/${slug}`}
         />
         <meta property="og:type" content="article" />
-        <meta property="article:published_time" content="12-04-2021" />
+        <meta
+          property="article:published_time"
+          content={`${DATE.day}-${DATE.month}-${DATE.year}`}
+        />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={shortDescription} />
         <meta property="og:image" content={thumbnail?.url} />

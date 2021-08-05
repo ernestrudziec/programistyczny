@@ -21,7 +21,7 @@
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: 0.5s all;
-  transform: scale(1.02) perspective(0) rotateX(0deg);
+  // transform: scale(1.02) perspective(0) rotateX(0deg);
 
   .comments {
     width: 1rem;
@@ -30,10 +30,6 @@
     bottom: -3px;
   }
 
-  &:hover {
-    transform: scale(0.995) perspective(400px) rotateX(1deg);
-    transition: 0.3s all;
-  }
   img {
     object-fit: contain;
     width: 100%;
