@@ -33,13 +33,23 @@ export default function ArticleTile({ data }) {
               return <li>#{tag}</li>;
             })}
           </ul>
-          <img src={thumbnail.url} />
+          <img src={thumbnail?.url} />
           <p>{shortDescription}</p>
           <Categories tile categories={categories} />
           <div className="read-more">
             <span>Kliknij i czytaj więcej</span>
           </div>
-          <a href={`/artykul/${slug}#disqus_thread`}>Dodaj komentarz</a>
+          <Link href={`/artykul/${slug}#disqus_thread`}>
+            <>
+              <img className="comments" src="/assets/comment.svg" />
+              <a
+                className="comment-first"
+                href={`/artykul/${slug}#disqus_thread`}
+              >
+                Przeczytaj i skomentuj! ;)
+              </a>
+            </>
+          </Link>
         </article>
       </a>
     </Link>

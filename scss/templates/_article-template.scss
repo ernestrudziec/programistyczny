@@ -1,3 +1,9 @@
+.thumbnail-article {
+  max-width: 500px;
+  width: 90%;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
 .article-template {
   display: flex;
   justify-content: center;
@@ -9,6 +15,10 @@
   margin: 1rem 0;
   width: 100%;
   margin-top: 3rem;
+
+  .thumbnail {
+    margin: 1rem 0 !important;
+  }
 
   @include vHD {
     box-shadow: 0px 5px 33px 0px rgba(0, 0, 0, 0.1);

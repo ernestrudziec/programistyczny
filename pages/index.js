@@ -22,6 +22,11 @@ export default function Home({ articles }) {
     console.log(articles);
   }, [articles]);
 
+  useEffect(() => {
+    console.log(window);
+    if (typeof window !== "undefined")
+      window.DISQUSWIDGETS.getCount({ reset: true });
+  }, []);
   return (
     <>
       <Layout>
@@ -41,7 +46,7 @@ export default function Home({ articles }) {
         </div>
       </Layout>
       <Script
-        strategy="lazyOnLoad"
+        strategy="beforeInteractive"
         id="dsq-count-scr"
         src="//programistyczny.disqus.com/count.js"
         async

@@ -55,11 +55,7 @@ export default function App({ Component, pageProps }) {
               (d.head || d.body).appendChild(s);
             })()}
         </script>
-        <script
-          id="dsq-count-scr"
-          src="//programistyczny.disqus.com/count.js"
-          async
-        ></script>
+
         <link
           rel="apple-touch-icon"
           sizes="57x57"

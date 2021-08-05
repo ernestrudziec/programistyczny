@@ -120,7 +120,17 @@ export default function Article({ data }) {
     .shiftTo("days", "hours", "minutes")
     .toObject();
 
-  const { slug, id, content, title, color, categories, authors, tags } = data;
+  const {
+    slug,
+    id,
+    content,
+    title,
+    color,
+    categories,
+    authors,
+    tags,
+    thumbnail
+  } = data;
 
   return (
     <Layout>
@@ -128,10 +138,12 @@ export default function Article({ data }) {
         <title>Artykuł - {title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <div className="date">
         <img src="/assets/clock.svg" />
         <span>{getDateString(DATE_STRING, DURATION)}</span>
       </div>
+
       <article className="article-template">
         <div className="container">
           <div
@@ -150,6 +162,7 @@ export default function Article({ data }) {
             </ul>
             <Categories categories={categories} />
           </div>
+
           <ReactMarkdown renderers={renderers}>{content}</ReactMarkdown>
         </div>
       </article>

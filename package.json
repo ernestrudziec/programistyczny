@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"@apollo/client": "^3.3.13",
+		"@n8tb1t/use-scroll-position": "^2.0.3",
 		"graphql": "^15.5.0",
 		"luxon": "^1.26.0",
 		"moment": "^2.29.1",
